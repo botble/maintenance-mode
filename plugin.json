@@ -1,0 +1,9 @@
+{
+    "name": "MaintenanceMode",
+    "namespace": "Botble\\MaintenanceMode\\",
+    "provider": "Botble\\MaintenanceMode\\Providers\\MaintenanceModeServiceProvider",
+    "author": "Sang Nguyen",
+    "url": "https://sangnguyen.info",
+    "version": "5.3",
+    "description": "The description for plugin maintenance_mode"
+}
