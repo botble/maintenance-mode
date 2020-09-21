@@ -10,27 +10,43 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="message" class="control-label">{{ trans('plugins/maintenance-mode::maintenance-mode.message') }}</label>
-            <input type="text" name="message" class="form-control" value="{{ old('message') }}" placeholder="{{ trans('plugins/maintenance-mode::maintenance-mode.message_placeholder') }}">
+            <label for="redirect" class="control-label">{{ trans('plugins/maintenance-mode::maintenance-mode.redirect') }}</label>
+            <input type="text" name="redirect" class="form-control" value="{{ old('redirect') }}" placeholder="{{ trans('plugins/maintenance-mode::maintenance-mode.redirect_placeholder') }}">
+            {!! Form::helper(trans('plugins/maintenance-mode::maintenance-mode.redirect_helper')) !!}
         </div>
         <div class="form-group">
             <label for="retry" class="control-label">{{ trans('plugins/maintenance-mode::maintenance-mode.retry_time') }} <span class="text-sm">({{ trans('plugins/maintenance-mode::maintenance-mode.secs') }})</span></label>
-            <input type="number" name="retry" class="form-control" value="{{ old('retry') }}" placeholder="{{ trans('plugins/maintenance-mode::maintenance-mode.retry_time_placeholder') }}"  min="0" max="9999">
+            <input type="number" name="retry" class="form-control" value="{{ old('retry') }}" placeholder="{{ trans('plugins/maintenance-mode::maintenance-mode.retry_time_placeholder') }}" min="0" max="9999">
         </div>
         <div class="form-group">
-            <label for="allow" class="control-label">{{ trans('plugins/maintenance-mode::maintenance-mode.allowed_ip_address') }}</label>
-            <textarea name="allow" id="allow" class="form-control" rows="4" placeholder="127.0.0.1, 192.168.0.1">{{ old('allow') }}</textarea>
-        </div>
-        <div class="form-group">
-            <input type="hidden" value="0" name="include_current_ip">
-            <label><input type="checkbox" value="1" name="include_current_ip" checked>{{ trans('plugins/maintenance-mode::maintenance-mode.allowed_your_current_ip') }}</label>
-            {!! Form::helper(trans('plugins/maintenance-mode::maintenance-mode.allowed_your_current_ip_helper')) !!}
+            <input type="hidden" value="0" name="use_secret">
+            <label class="control-label"><input type="checkbox" value="1" name="use_secret" checked>{{ trans('plugins/maintenance-mode::maintenance-mode.secret') }}</label>
+            {!! Form::helper(trans('plugins/maintenance-mode::maintenance-mode.secret_helper')) !!}
         </div>
         <div class="form-group">
             <button class="btn btn-sm @if ($isDownForMaintenance) btn-info @else btn-warning @endif" id="btn-maintenance">{{ $isDownForMaintenance ? trans('plugins/maintenance-mode::maintenance-mode.disable_maintenance_mode') : trans('plugins/maintenance-mode::maintenance-mode.enable_maintenance_mode') }}</button>
         </div>
     {!! Form::close() !!}
 
+    <!-- Modal -->
+    <div class="modal fade" id="bypassMaintenanceMode" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bypassModeLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="bypassModeLabel">{{ trans('plugins/maintenance-mode::maintenance-mode.bypass_maintenance_mode') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>{!! trans('plugins/maintenance-mode::maintenance-mode.click_to_bypass_maintenance_mode') !!}</h3>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('plugins/maintenance-mode::maintenance-mode.close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <style>
         .maintenance-mode-notice {
             text-align : center;

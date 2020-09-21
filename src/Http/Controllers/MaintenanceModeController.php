@@ -48,13 +48,14 @@ class MaintenanceModeController extends Controller
                 ]);
         }
 
-        $maintenanceMode->down($request);
+        $secret = $maintenanceMode->down($request);
         return $response
             ->setMessage(trans('plugins/maintenance-mode::maintenance-mode.application_down'))
             ->setData([
                 'is_down' => true,
                 'notice'  => trans('plugins/maintenance-mode::maintenance-mode.notice_enable'),
                 'message' => trans('plugins/maintenance-mode::maintenance-mode.disable_maintenance_mode'),
+                'url'     => $secret ? url($secret) : null,
             ]);
     }
 }
