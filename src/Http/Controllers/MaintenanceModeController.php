@@ -49,6 +49,7 @@ class MaintenanceModeController extends Controller
         }
 
         $secret = $maintenanceMode->down($request);
+
         return $response
             ->setMessage(trans('plugins/maintenance-mode::maintenance-mode.application_down'))
             ->setData([

@@ -3,7 +3,6 @@
 namespace Botble\MaintenanceMode\Supports;
 
 use Illuminate\Http\Request;
-use Botble\Base\Supports\Helper;
 use Illuminate\Support\Str;
 
 /**
@@ -18,7 +17,17 @@ class MaintenanceMode
      */
     public function up()
     {
-        Helper::executeCommand('up');
+        if (is_file(storage_path('framework/down'))) {
+            unlink(storage_path('framework/down'));
+
+            if (is_file(storage_path('framework/maintenance.php'))) {
+                unlink(storage_path('framework/maintenance.php'));
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -27,26 +36,39 @@ class MaintenanceMode
      * @param Request $request
      * @return boolean
      */
-    public function down($request)
+    public function down(Request $request)
     {
         $secret = '';
-        $params = [];
+        $params = [
+            'status'   => 503,
+            'template' => null,
+        ];
 
         if ($request->has('redirect')) {
-            $params['--redirect'] = $request->get('redirect');
+            $params['redirect'] = $request->input('redirect');
         }
 
         if ($request->has('retry')) {
-            $params['--retry'] = $request->get('retry');
+            $params['retry'] = $request->input('retry');
         }
 
-        $use_secret = $request->get('use_secret');
-        if ($use_secret) {
-            $secret = (string) Str::uuid();
-            $params['--secret'] = $secret;
+        $useSecret = $request->input('use_secret');
+        if ($useSecret) {
+            $secret = (string)Str::uuid();
+            $params['secret'] = $secret;
         }
 
-        Helper::executeCommand('down', $params);
+        if (!is_file(storage_path('framework/down'))) {
+            file_put_contents(
+                storage_path('framework/down'),
+                json_encode($params, JSON_PRETTY_PRINT)
+            );
+
+            file_put_contents(
+                storage_path('framework/maintenance.php'),
+                file_get_contents(base_path('vendor/laravel/framework/src/Illuminate/Foundation/Console/stubs/maintenance-mode.stub'))
+            );
+        }
 
         return $secret;
     }

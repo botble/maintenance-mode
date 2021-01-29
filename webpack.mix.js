@@ -1,8 +1,11 @@
 let mix = require('laravel-mix');
 
-const publicPath = 'public/vendor/core/plugins/maintenance-mode';
-const resourcePath = './platform/plugins/maintenance-mode';
+const path = require('path');
+let directory = path.basename(path.resolve(__dirname));
+
+const source = 'platform/plugins/' + directory;
+const dist = 'public/vendor/core/plugins/' + directory;
 
 mix
-    .js(resourcePath + '/resources/assets/js/maintenance.js', publicPath + '/js/maintenance.js')
-    .copy(publicPath + '/js/maintenance.js', resourcePath + '/public/js');
+    .js(source + '/resources/assets/js/maintenance.js', dist + '/js/maintenance.js')
+    .copy(dist + '/js/maintenance.js', source + '/public/js');

@@ -39,10 +39,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h3>{!! trans('plugins/maintenance-mode::maintenance-mode.click_to_bypass_maintenance_mode') !!}</h3>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('plugins/maintenance-mode::maintenance-mode.close') }}</button>
+                    <p>{!! clean(trans('plugins/maintenance-mode::maintenance-mode.click_to_bypass_maintenance_mode')) !!}</p>
                 </div>
             </div>
         </div>

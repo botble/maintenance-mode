@@ -15,7 +15,7 @@ class MaintenanceMode {
                         Botble.showSuccess(res.message);
                         const data = res.data;
                         _self.text(data.message);
-                        if ( ! data.is_down) {
+                        if (!data.is_down) {
                             _self.removeClass('btn-warning').addClass('btn-info');
                             _self.closest('form').find('.maintenance-mode-notice div span').removeClass('text-danger').addClass('text-success').text(data.notice);
                         } else {
@@ -33,7 +33,7 @@ class MaintenanceMode {
                 error: (res) => {
                     Botble.handleError(res);
                 },
-                complete: (res) => {
+                complete: () => {
                     _self.removeClass('button-loading');
                 }
             });
