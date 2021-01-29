@@ -13,25 +13,27 @@ class MaintenanceMode {
                 success: (res) => {
                     if (!res.error) {
                         Botble.showSuccess(res.message);
-                        _self.text(res.data.message);
-                        if (!res.data.is_down) {
+                        const data = res.data;
+                        _self.text(data.message);
+                        if ( ! data.is_down) {
                             _self.removeClass('btn-warning').addClass('btn-info');
+                            _self.closest('form').find('.maintenance-mode-notice div span').removeClass('text-danger').addClass('text-success').text(data.notice);
                         } else {
                             _self.addClass('btn-warning').removeClass('btn-info');
-                        }
-
-                        if (res.data.is_down) {
-                            _self.closest('form').find('.maintenance-mode-notice div span').addClass('text-danger').removeClass('text-success').text(res.data.notice);
-                        } else {
-                            _self.closest('form').find('.maintenance-mode-notice div span').removeClass('text-danger').addClass('text-success').text(res.data.notice);
+                            _self.closest('form').find('.maintenance-mode-notice div span').addClass('text-danger').removeClass('text-success').text(data.notice);
+                            if (data.url) {
+                                $('#bypassMaintenanceMode .maintenance-mode-bypass').attr('href', data.url);
+                                $('#bypassMaintenanceMode').modal('show');
+                            }
                         }
                     } else {
                         Botble.showError(res.message);
                     }
-                    _self.removeClass('button-loading');
                 },
                 error: (res) => {
                     Botble.handleError(res);
+                },
+                complete: (res) => {
                     _self.removeClass('button-loading');
                 }
             });

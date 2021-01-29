@@ -3,6 +3,8 @@
 namespace Botble\MaintenanceMode\Supports;
 
 use Illuminate\Http\Request;
+use Botble\Base\Supports\Helper;
+use Illuminate\Support\Str;
 
 /**
  * Class to wrap Artisan Maintenance mode logic
@@ -16,7 +18,7 @@ class MaintenanceMode
      */
     public function up()
     {
-        return unlink(storage_path('framework/down'));
+        Helper::executeCommand('up');
     }
 
     /**
@@ -27,30 +29,25 @@ class MaintenanceMode
      */
     public function down($request)
     {
-        $props = $request->only(['message', 'retry', 'allow', 'include_current_ip']);
+        $secret = '';
+        $params = [];
 
-        $retry = data_get($props, 'retry');
-
-        $retrySeconds = is_numeric($retry) && $retry > 0 ? (int)$retry : null;
-
-        $allowedIps = [];
-
-        if (!empty(data_get($props, 'allow'))) {
-            $allowedIpList = str_replace(' ', '', data_get($props, 'allow'));
-            $allowedIps = explode(',', $allowedIpList);
+        if ($request->has('redirect')) {
+            $params['--redirect'] = $request->get('redirect');
         }
 
-        if ($request->input('include_current_ip', true)) {
-            $allowedIps[] = $request->ip();
+        if ($request->has('retry')) {
+            $params['--retry'] = $request->get('retry');
         }
 
-        $payload = [
-            'time'    => now()->timestamp,
-            'message' => data_get($props, 'message'),
-            'retry'   => $retrySeconds,
-            'allowed' => array_unique($allowedIps),
-        ];
+        $use_secret = $request->get('use_secret');
+        if ($use_secret) {
+            $secret = (string) Str::uuid();
+            $params['--secret'] = $secret;
+        }
 
-        return save_file_data(storage_path('framework/down'), $payload);
+        Helper::executeCommand('down', $params);
+
+        return $secret;
     }
 }

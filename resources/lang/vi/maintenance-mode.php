@@ -16,4 +16,13 @@ return [
     'application_down'               => 'Ứng dụng hiện đang ở chế độ bảo trì',
     'notice_enable'                  => 'Website của bạn đang ở chế độ bảo trì',
     'notice_disable'                 => 'Website của bạn đang hoạt động bình thường',
+    'secret'                         => 'Khóa bí mật (Bỏ qua chế độ bảo trì)',
+    'secret_helper'                  => 'Bạn có thể sử dụng tùy chọn bí mật để chỉ định mã thông báo bỏ qua chế độ bảo trì; <br />
+                                        Sau khi đặt ứng dụng ở chế độ bảo trì, bạn có thể điều hướng đến URL ứng dụng khớp với mã thông báo này và sẽ bỏ qua chế độ bảo trì cho trình duyệt của bạn;',
+    'redirect'                       => 'Chuyển hướng yêu cầu chế độ bảo trì',
+    'redirect_placeholder'           => '/',
+    'redirect_helper'                => 'Trong khi ở chế độ bảo trì, Ứng dụng sẽ hiển thị chế độ bảo trì cho tất cả các URL ứng dụng mà người dùng cố gắng truy cập. Nếu muốn, bạn có thể hướng dẫn ứng dụng chuyển hướng tất cả các yêu cầu đến một URL cụ thể. Điều này có thể được thực hiện bằng cách sử dụng tùy chọn chuyển hướng.',
+    'bypass_maintenance_mode'        => 'Bỏ qua chế độ bảo trì',
+    'click_to_bypass_maintenance_mode' => 'Vui lòng nhấp vào <a class="maintenance-mode-bypass" href="" target="_blank">đây</a> để được bỏ qua chế độ bảo trì.',
+    'close'                          => 'Đóng',
 ];
