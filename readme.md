@@ -9,6 +9,7 @@ Purchase it here: [https://codecanyon.net/item/botble-cms-php-platform-based-on-
 
 # Installation
 - Download and rename folder `maintenance-mode-master` to `maintenance-mode`.
+- Copy folder `maintenance-mode` into `/platform/plugins`.
 - Go to Admin -> Plugins then activate plugin Maintenance Mode.
 
 # Screenshots
