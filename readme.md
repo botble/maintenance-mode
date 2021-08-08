@@ -8,9 +8,8 @@ Purchase it here: [https://codecanyon.net/item/botble-cms-php-platform-based-on-
 - Using version 2.0 if you are using Botble CMS >= 5.13 (Laravel 8.x).
 
 # Installation
-- Download and copy source code into `/platform/plugins/maintenance-mode`.
-- Run command `php artisan cms:plugin:activate maintenance-mode` to activate this plugin.
-- Go to Admin -> Platform Administration -> Maintenance mode.
+- Download and rename folder `maintenance-mode-master` to `maintenance-mode`.
+- Go to Admin -> Plugins then activate plugin Maintenance Mode.
 
 # Screenshots
 
