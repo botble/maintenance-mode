@@ -2,8 +2,8 @@
     "name": "MaintenanceMode",
     "namespace": "Botble\\MaintenanceMode\\",
     "provider": "Botble\\MaintenanceMode\\Providers\\MaintenanceModeServiceProvider",
-    "author": "Sang Nguyen",
-    "url": "https://sangnguyen.info",
-    "version": "5.3",
-    "description": "The description for plugin maintenance_mode"
+    "author": "Botble Technologies",
+    "url": "https://botble.com",
+    "version": "1.2",
+    "description": "Manage maintenance mode from UI"
 }

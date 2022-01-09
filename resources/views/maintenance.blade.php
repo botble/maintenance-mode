@@ -1,4 +1,4 @@
-@extends('core/base::layouts.master')
+@extends(BaseHelper::getAdminMasterLayoutTemplate())
 @section('content')
     {!! Form::open() !!}
         <div class="maintenance-mode-notice">
@@ -29,13 +29,12 @@
     {!! Form::close() !!}
 
     <!-- Modal -->
-    <div class="modal fade" id="bypassMaintenanceMode" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="bypassModeLabel" aria-hidden="true">
+    <div class="modal fade" id="bypassMaintenanceMode" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="bypassModeLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                 <h5 class="modal-title" id="bypassModeLabel">{{ trans('plugins/maintenance-mode::maintenance-mode.bypass_maintenance_mode') }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" aria-hidden="true">
                     </button>
                 </div>
                 <div class="modal-body">

@@ -10,7 +10,7 @@ class MaintenanceMode {
                 url: route('system.maintenance.run'),
                 cache: false,
                 data: _self.closest('form').serialize(),
-                success: (res) => {
+                success: res => {
                     if (!res.error) {
                         Botble.showSuccess(res.message);
                         const data = res.data;
@@ -30,7 +30,7 @@ class MaintenanceMode {
                         Botble.showError(res.message);
                     }
                 },
-                error: (res) => {
+                error: res => {
                     Botble.handleError(res);
                 },
                 complete: () => {
