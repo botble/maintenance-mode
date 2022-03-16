@@ -12,6 +12,10 @@ Purchase it here: [https://codecanyon.net/item/botble-cms-php-platform-based-on-
 - Copy folder `maintenance-mode` into `/platform/plugins`.
 - Go to Admin -> Plugins then activate plugin Maintenance Mode.
 
+# Important notes
+- If you can't access your site after enabling maintenance mode, just need to delete file **storage/framework/down** to turn-off maintenance mode.
+- Laravel docs for maintenance mode [https://laravel.com/docs/9.x/configuration#maintenance-mode](https://laravel.com/docs/9.x/configuration#maintenance-mode)
+
 # Screenshots
 
 ![Screenshot](https://raw.githubusercontent.com/botble/maintenance-mode/master/public/images/screenshot.png)
