@@ -35,15 +35,15 @@ class MaintenanceModeController extends Controller
         MaintenanceModeRequest $request,
         BaseHttpResponse $response,
         MaintenanceMode $maintenanceMode
-    )
-    {
+    ) {
         if (app()->isDownForMaintenance()) {
             $maintenanceMode->up();
+
             return $response
                 ->setMessage(trans('plugins/maintenance-mode::maintenance-mode.application_live'))
                 ->setData([
                     'is_down' => false,
-                    'notice'  => trans('plugins/maintenance-mode::maintenance-mode.notice_disable'),
+                    'notice' => trans('plugins/maintenance-mode::maintenance-mode.notice_disable'),
                     'message' => trans('plugins/maintenance-mode::maintenance-mode.enable_maintenance_mode'),
                 ]);
         }
@@ -54,9 +54,9 @@ class MaintenanceModeController extends Controller
             ->setMessage(trans('plugins/maintenance-mode::maintenance-mode.application_down'))
             ->setData([
                 'is_down' => true,
-                'notice'  => trans('plugins/maintenance-mode::maintenance-mode.notice_enable'),
+                'notice' => trans('plugins/maintenance-mode::maintenance-mode.notice_enable'),
                 'message' => trans('plugins/maintenance-mode::maintenance-mode.disable_maintenance_mode'),
-                'url'     => $secret ? url($secret) : null,
+                'url' => $secret ? url($secret) : null,
             ]);
     }
 }

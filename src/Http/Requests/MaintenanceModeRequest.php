@@ -6,7 +6,6 @@ use Botble\Support\Http\Requests\Request;
 
 class MaintenanceModeRequest extends Request
 {
-
     /**
      * Get the validation rules that apply to the request.
      *

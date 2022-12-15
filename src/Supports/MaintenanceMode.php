@@ -40,7 +40,7 @@ class MaintenanceMode
     {
         $secret = '';
         $params = [
-            'status'   => 503,
+            'status' => 503,
             'template' => null,
         ];
 
@@ -58,7 +58,7 @@ class MaintenanceMode
             $params['secret'] = $secret;
         }
 
-        if (!is_file(storage_path('framework/down'))) {
+        if (! is_file(storage_path('framework/down'))) {
             file_put_contents(
                 storage_path('framework/down'),
                 json_encode($params, JSON_PRETTY_PRINT)

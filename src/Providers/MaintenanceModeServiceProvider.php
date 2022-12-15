@@ -28,12 +28,12 @@ class MaintenanceModeServiceProvider extends ServiceProvider
 
         Event::listen(RouteMatched::class, function () {
             dashboard_menu()->registerItem([
-                'id'          => 'cms-core-system-maintenance-mode',
-                'priority'    => 700,
-                'parent_id'   => 'cms-core-platform-administration',
-                'name'        => 'plugins/maintenance-mode::maintenance-mode.maintenance_mode',
-                'icon'        => null,
-                'url'         => route('system.maintenance.index'),
+                'id' => 'cms-core-system-maintenance-mode',
+                'priority' => 700,
+                'parent_id' => 'cms-core-platform-administration',
+                'name' => 'plugins/maintenance-mode::maintenance-mode.maintenance_mode',
+                'icon' => null,
+                'url' => route('system.maintenance.index'),
                 'permissions' => [ACL_ROLE_SUPER_USER],
             ]);
         });
