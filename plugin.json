@@ -1,9 +1,10 @@
 {
-    "name": "MaintenanceMode",
+    "id": "botble/maintenance-mode",
+    "name": "Maintenance Mode",
     "namespace": "Botble\\MaintenanceMode\\",
     "provider": "Botble\\MaintenanceMode\\Providers\\MaintenanceModeServiceProvider",
     "author": "Botble Technologies",
     "url": "https://botble.com",
-    "version": "2.2",
-    "description": "Manage maintenance mode from UI"
+    "version": "2.2.1",
+    "description": "Manage maintenance mode from the admin panel"
 }
