@@ -23,6 +23,7 @@ class MaintenanceMode {
                             _self.closest('form').find('.maintenance-mode-notice div span').addClass('text-danger').removeClass('text-success').text(data.notice);
                             if (data.url) {
                                 $('#bypassMaintenanceMode .maintenance-mode-bypass').attr('href', data.url);
+                                $('#bypassMaintenanceMode #secret-link').val(data.url);
                                 $('#bypassMaintenanceMode').modal('show');
                             }
                         }

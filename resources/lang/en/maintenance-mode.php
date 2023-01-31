@@ -25,4 +25,5 @@ return [
     'bypass_maintenance_mode' => 'Bypassing Maintenance Mode',
     'click_to_bypass_maintenance_mode' => 'Please click <a class="maintenance-mode-bypass" href="" target="_blank">here</a> to bypassing maintenance mode.',
     'close' => 'Close',
+    'bypass_warning' => 'The secret link to bypass maintenance mode, <strong>YOU NEED TO BACK UP THIS LINK IN A SAFE PLACE</strong>',
 ];

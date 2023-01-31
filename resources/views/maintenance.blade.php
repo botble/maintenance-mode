@@ -38,6 +38,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="secret-link">{!! clean(trans('plugins/maintenance-mode::maintenance-mode.bypass_warning')) !!}.</label>
+                        <input type="text" class="form-control" id="secret-link">
+                    </div>
                     <p>{!! clean(trans('plugins/maintenance-mode::maintenance-mode.click_to_bypass_maintenance_mode')) !!}</p>
                 </div>
             </div>

@@ -25,4 +25,5 @@ return [
     'bypass_maintenance_mode' => 'Bỏ qua chế độ bảo trì',
     'click_to_bypass_maintenance_mode' => 'Vui lòng nhấp vào <a class="maintenance-mode-bypass" href="" target="_blank">đây</a> để được bỏ qua chế độ bảo trì.',
     'close' => 'Đóng',
+    'bypass_warning' => 'Đường dẫn bí mật để vượt qua chế độ bảo trì, <strong>BẠN CẦN LƯU LIÊN KẾT NÀY Ở MỘT NƠI AN TOÀN</strong>',
 ];
