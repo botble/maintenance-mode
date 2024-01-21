@@ -10,17 +10,17 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="redirect" class="control-label">{{ trans('plugins/maintenance-mode::maintenance-mode.redirect') }}</label>
+            <label for="redirect" class="control-label form-label">{{ trans('plugins/maintenance-mode::maintenance-mode.redirect') }}</label>
             <input type="text" name="redirect" class="form-control" value="{{ old('redirect') }}" placeholder="{{ trans('plugins/maintenance-mode::maintenance-mode.redirect_placeholder') }}">
             {!! Form::helper(trans('plugins/maintenance-mode::maintenance-mode.redirect_helper')) !!}
         </div>
         <div class="form-group">
-            <label for="retry" class="control-label">{{ trans('plugins/maintenance-mode::maintenance-mode.retry_time') }} <span class="text-sm">({{ trans('plugins/maintenance-mode::maintenance-mode.secs') }})</span></label>
+            <label for="retry" class="control-label form-label">{{ trans('plugins/maintenance-mode::maintenance-mode.retry_time') }} <span class="text-sm">({{ trans('plugins/maintenance-mode::maintenance-mode.secs') }})</span></label>
             <input type="number" name="retry" class="form-control" value="{{ old('retry') }}" placeholder="{{ trans('plugins/maintenance-mode::maintenance-mode.retry_time_placeholder') }}" min="0" max="9999">
         </div>
         <div class="form-group">
             <input type="hidden" value="0" name="use_secret">
-            <label class="control-label"><input type="checkbox" value="1" name="use_secret" checked>{{ trans('plugins/maintenance-mode::maintenance-mode.secret') }}</label>
+            <label class="control-label form-label"><input type="checkbox" value="1" name="use_secret" class="me-1" checked>{{ trans('plugins/maintenance-mode::maintenance-mode.secret') }}</label>
             {!! Form::helper(trans('plugins/maintenance-mode::maintenance-mode.secret_helper')) !!}
         </div>
         <div class="form-group">

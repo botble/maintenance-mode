@@ -10,12 +10,7 @@ use Illuminate\Support\Str;
  */
 class MaintenanceMode
 {
-    /**
-     * Bring Application out of Maintenance Mode
-     *
-     * @return bool
-     */
-    public function up()
+    public function up(): bool
     {
         if (is_file(storage_path('framework/down'))) {
             unlink(storage_path('framework/down'));
@@ -30,13 +25,7 @@ class MaintenanceMode
         return false;
     }
 
-    /**
-     * Put Application into Maintenance Mode
-     *
-     * @param Request $request
-     * @return boolean
-     */
-    public function down(Request $request)
+    public function down(Request $request): bool|string
     {
         $secret = '';
         $params = [

@@ -5,6 +5,7 @@
     "provider": "Botble\\MaintenanceMode\\Providers\\MaintenanceModeServiceProvider",
     "author": "Botble Technologies",
     "url": "https://botble.com",
-    "version": "2.2.2",
+    "version": "2.3.0",
+    "minimum_core_version": "6.0.0",
     "description": "Manage maintenance mode from the admin panel"
 }
