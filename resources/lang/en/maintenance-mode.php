@@ -4,7 +4,7 @@ return [
     'maintenance_mode' => 'Maintenance mode',
     'message' => 'Message',
     'message_placeholder' => 'A message for your users',
-    'retry_time' => 'Retry Time',
+    'retry_time_in_seconds' => 'Retry Time (seconds)',
     'retry_time_placeholder' => 'Set the Retry-After header',
     'secs' => 'secs',
     'allowed_ip_address' => 'Allowed IP Addresses',

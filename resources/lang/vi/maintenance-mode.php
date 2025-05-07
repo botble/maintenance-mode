@@ -5,6 +5,7 @@ return [
     'message' => 'Tin nhắn',
     'message_placeholder' => 'Tin nhắn hiển thị cho khách ghé thăm',
     'retry_time' => 'Thời gian thử lại',
+    'retry_time_in_seconds' => 'Thời gian thử lại (giây)',
     'retry_time_placeholder' => 'Thiết lập Retry-After header',
     'secs' => 'giây',
     'allowed_ip_address' => 'Cho phép các địa chỉ IP có thể truy cập',
